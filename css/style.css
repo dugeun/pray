@@ -317,16 +317,16 @@ main {
 }
 
 .photo-carousel a {
-  width: 100%;
+  width: 42%;
   flex-shrink: 0;
-  scroll-snap-align: center;
+  scroll-snap-align: start;
 }
 
 .photo-carousel img {
   width: 100%;
   aspect-ratio: 3 / 4;
-  object-fit: contain;
-  border-radius: var(--radius);
+  object-fit: cover;
+  border-radius: 14px;
   background: var(--card);
   display: block;
 }

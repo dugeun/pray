@@ -48,7 +48,7 @@
         a.target = "_blank";
         a.rel = "noopener";
         var img = document.createElement("img");
-        img.src = "https://drive.google.com/thumbnail?id=" + f.id + "&sz=w800";
+        img.src = "https://drive.google.com/thumbnail?id=" + f.id + "&sz=w400";
         img.alt = f.name;
         img.loading = "lazy";
         a.appendChild(img);
@@ -58,12 +58,7 @@
       var counter = document.getElementById("photo-counter");
       if (counter) {
         counter.hidden = false;
-        var update = function () {
-          var idx = Math.round(carousel.scrollLeft / carousel.offsetWidth);
-          counter.textContent = (idx + 1) + " / " + data.files.length;
-        };
-        update();
-        carousel.addEventListener("scroll", update, { passive: true });
+        counter.textContent = "사진 " + data.files.length + "장 · 옆으로 넘겨보세요";
       }
     })
     .catch(function () {}); // 실패해도 페이지는 정상 동작
