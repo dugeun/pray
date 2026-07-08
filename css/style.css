@@ -164,3 +164,31 @@ main {
   background: var(--gold);
   transform: scale(1.25);
 }
+
+/* ── 교제 내용 ── */
+.fellowship {
+  text-align: center;
+}
+
+.fellowship-desc {
+  color: var(--ink-dim);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.notion-btn {
+  display: inline-block;
+  padding: 16px 36px;
+  border-radius: 999px;
+  background: var(--gold);
+  color: #1b1503;
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-decoration: none;
+  box-shadow: 0 6px 24px rgba(232, 200, 116, 0.3);
+  transition: transform 0.15s;
+}
+
+.notion-btn:active {
+  transform: scale(0.97);
+}
