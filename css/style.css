@@ -324,8 +324,8 @@ main {
 
 .photo-carousel img {
   width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
+  aspect-ratio: 3 / 4;
+  object-fit: contain;
   border-radius: var(--radius);
   background: var(--card);
   display: block;
