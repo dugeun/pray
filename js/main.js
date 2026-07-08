@@ -38,27 +38,47 @@
     + "?q=" + encodeURIComponent("'" + FOLDER_ID + "' in parents and mimeType contains 'image/' and trashed = false")
     + "&orderBy=createdTime desc&pageSize=60&fields=files(id,name)&key=" + API_KEY;
 
+  var makeItem = function (f) {
+    var a = document.createElement("a");
+    a.href = "https://drive.google.com/file/d/" + f.id + "/view";
+    a.target = "_blank";
+    a.rel = "noopener";
+    var img = document.createElement("img");
+    img.src = "https://drive.google.com/thumbnail?id=" + f.id + "&sz=w400";
+    img.alt = f.name;
+    img.loading = "lazy";
+    a.appendChild(img);
+    return a;
+  };
+
   fetch(url)
     .then(function (res) { return res.json(); })
     .then(function (data) {
       if (!data.files || !data.files.length) return;
       data.files.forEach(function (f) {
-        var a = document.createElement("a");
-        a.href = "https://drive.google.com/file/d/" + f.id + "/view";
-        a.target = "_blank";
-        a.rel = "noopener";
-        var img = document.createElement("img");
-        img.src = "https://drive.google.com/thumbnail?id=" + f.id + "&sz=w400";
-        img.alt = f.name;
-        img.loading = "lazy";
-        a.appendChild(img);
-        carousel.appendChild(a);
+        carousel.appendChild(makeItem(f));
       });
 
       var counter = document.getElementById("photo-counter");
       if (counter) {
         counter.hidden = false;
         counter.textContent = "사진 " + data.files.length + "장 · 옆으로 넘겨보세요";
+      }
+
+      // 전체보기: 캐러셀 ↔ 격자 전환
+      var gridAll = document.getElementById("photo-grid-all");
+      var toggle = document.getElementById("photo-toggle");
+      if (gridAll && toggle) {
+        data.files.forEach(function (f) {
+          gridAll.appendChild(makeItem(f));
+        });
+        toggle.hidden = false;
+        toggle.addEventListener("click", function () {
+          var opening = gridAll.hidden;
+          gridAll.hidden = !opening;
+          carousel.hidden = opening;
+          toggle.textContent = opening ? "접기 ∧" : "전체보기 ∨";
+        });
       }
     })
     .catch(function () {}); // 실패해도 페이지는 정상 동작

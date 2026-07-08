@@ -335,6 +335,42 @@ main {
   text-align: center;
   color: var(--ink-dim);
   font-size: 0.85rem;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
   font-variant-numeric: tabular-nums;
+}
+
+/* ── 사진첩 전체보기 격자 ── */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.photo-grid img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 12px;
+  background: var(--card);
+  display: block;
+}
+
+/* display 지정이 hidden 속성을 덮지 않도록 */
+.photo-carousel[hidden],
+.photo-grid[hidden] {
+  display: none;
+}
+
+.photo-toggle {
+  display: block;
+  margin: 0 auto 20px;
+  background: none;
+  border: none;
+  color: var(--ink-dim);
+  font-size: 0.9rem;
+  font-family: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
 }
