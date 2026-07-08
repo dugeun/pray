@@ -35,10 +35,10 @@
   if (!API_KEY) return;
 
   var DAYS = [
-    { label: "8/7 (금)", folderId: "1EKgNQXJ5wa1OhF-gf5gIXSMBEHWvMxXH" },
-    { label: "8/14 (금)", folderId: "1kfK6GrxQvVnBEA8c86AXibpwc7TEoUJR" },
-    { label: "8/21 (금)", folderId: "1as7h7UqsA8efuUtqgoYq7vhb7tUUCABN" },
-    { label: "8/23 (주일)", folderId: "1WWtna5J2MimMUItMwN8kJGDFasCYzjbK" }
+    { label: "8/7", folderId: "1EKgNQXJ5wa1OhF-gf5gIXSMBEHWvMxXH" },
+    { label: "8/14", folderId: "1kfK6GrxQvVnBEA8c86AXibpwc7TEoUJR" },
+    { label: "8/21", folderId: "1as7h7UqsA8efuUtqgoYq7vhb7tUUCABN" },
+    { label: "8/23", folderId: "1WWtna5J2MimMUItMwN8kJGDFasCYzjbK" }
   ];
 
   var gridAll = document.getElementById("photo-grid-all");
