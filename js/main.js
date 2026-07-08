@@ -23,3 +23,37 @@
     });
   }, { passive: true });
 })();
+
+// 드라이브 갤러리: 공개 폴더의 이미지 목록을 읽어 그리드로 표시.
+// API_KEY가 비어 있으면 아무것도 하지 않음 (그리드 숨김, 버튼만 노출).
+(function () {
+  var grid = document.getElementById("photo-grid");
+  if (!grid) return;
+
+  var FOLDER_ID = "1JtS_8SzZGzlj1LxoTJoDX-SlgN7s1N3e";
+  var API_KEY = ""; // TEMP-CONTENT: 발급받은 Google Drive API 키로 교체
+  if (!API_KEY) return;
+
+  var url = "https://www.googleapis.com/drive/v3/files"
+    + "?q=" + encodeURIComponent("'" + FOLDER_ID + "' in parents and mimeType contains 'image/' and trashed = false")
+    + "&orderBy=createdTime desc&pageSize=60&fields=files(id,name)&key=" + API_KEY;
+
+  fetch(url)
+    .then(function (res) { return res.json(); })
+    .then(function (data) {
+      if (!data.files || !data.files.length) return;
+      data.files.forEach(function (f) {
+        var a = document.createElement("a");
+        a.href = "https://drive.google.com/file/d/" + f.id + "/view";
+        a.target = "_blank";
+        a.rel = "noopener";
+        var img = document.createElement("img");
+        img.src = "https://drive.google.com/thumbnail?id=" + f.id + "&sz=w400";
+        img.alt = f.name;
+        img.loading = "lazy";
+        a.appendChild(img);
+        grid.appendChild(a);
+      });
+    })
+    .catch(function () {}); // 실패해도 페이지는 정상 동작
+})();
