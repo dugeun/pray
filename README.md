@@ -2,7 +2,7 @@
 
 NFC 키링을 찍으면 열리는 수련회 랜딩 페이지입니다.
 
-- **배포 주소**: https://dugeun.github.io/pray/
+- **배포 주소**: https://jamjoongyouth.github.io/pray/
 - **구조**: `index.html` + `css/style.css` + `js/main.js` (프레임워크 없음)
 
 ## ⚠️ 반드시 지켜야 할 것
@@ -26,7 +26,7 @@ NFC 키링을 찍으면 열리는 수련회 랜딩 페이지입니다.
 
 1. 태그는 **NTAG213** 이상 (다이소·쿠팡의 NFC 스티커/키링 대부분 해당)
 2. 폰에 **NFC Tools** 앱(무료) 설치 → 쓰기 → URL/URI 레코드 →
-   `https://dugeun.github.io/pray/` 입력 → 태그에 기록
+   `https://jamjoongyouth.github.io/pray/` 입력 → 태그에 기록
 3. 폰으로 태그를 찍어 페이지가 열리는지 확인
 4. 확인 후 NFC Tools의 **잠금(Lock)** 실행 — 다른 사람이 덮어쓰는 사고 방지
    (잠금은 되돌릴 수 없으니 반드시 URL 확인 후 실행)
