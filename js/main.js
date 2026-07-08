@@ -31,7 +31,7 @@
   if (!grid) return;
 
   var FOLDER_ID = "1JtS_8SzZGzlj1LxoTJoDX-SlgN7s1N3e";
-  var API_KEY = ""; // TEMP-CONTENT: 발급받은 Google Drive API 키로 교체
+  var API_KEY = "AIzaSyDYCXSH17rvI77rvE-yIVNLMyExHecK3uw"; // 리퍼러 제한: jamjoongyouth.github.io
   if (!API_KEY) return;
 
   var url = "https://www.googleapis.com/drive/v3/files"
